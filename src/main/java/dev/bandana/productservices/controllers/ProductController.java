@@ -5,6 +5,7 @@ import dev.bandana.productservices.dtos.UpdateProductRequestDto;
 import dev.bandana.productservices.exceptions.ProductNotFoundException;
 import dev.bandana.productservices.models.Product;
 import dev.bandana.productservices.services.ProductServices;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,7 +16,8 @@ import java.util.List;
 public class ProductController {
     public ProductServices productServices;
 
-    ProductController(ProductServices productServices) {
+    ProductController(@Qualifier("selfProductService") ProductServices productServices) {
+
         this.productServices = productServices;
     }
     /*

@@ -14,7 +14,8 @@ import org.springframework.web.client.RestTemplate;
 
 import java.util.ArrayList;
 import java.util.List;
-@Service
+
+@Service("fakestoreProductService")
 public class FakeStoreProductService implements ProductServices{
 
     RestTemplate restTemplate;//using this you will be able to call third party api
