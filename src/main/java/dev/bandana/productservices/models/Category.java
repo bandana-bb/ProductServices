@@ -1,5 +1,7 @@
 package dev.bandana.productservices.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
@@ -18,7 +20,8 @@ public class Category extends BaseModel {
     private String title;
     //@OneToMany(mapped by ="category",cascade={CascadeType.REMOVE})--this will help to add create another
     //table for both ids
-    @OneToMany
+    @OneToMany(mappedBy = "category",cascade ={CascadeType.REMOVE})
+    @JsonIgnore
     List<Product> products;
 
 }

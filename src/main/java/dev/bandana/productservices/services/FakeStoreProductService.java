@@ -1,6 +1,5 @@
 package dev.bandana.productservices.services;
 
-import dev.bandana.productservices.dtos.ErrorDTO;
 import dev.bandana.productservices.dtos.FakeStoreProductDto;
 import dev.bandana.productservices.exceptions.ProductNotFoundException;
 import dev.bandana.productservices.models.Product;
@@ -9,7 +8,6 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.ArrayList;
@@ -62,7 +60,7 @@ public class FakeStoreProductService implements ProductServices{
     return fakeStoreProductDto.toProduct();
     }
 
-    public List<String> getAllCategory(){
+    public List<Product> getAllCategory(){
         return restTemplate.getForObject("https://fakestoreapi.com/products/categories", List.class);
     }
 

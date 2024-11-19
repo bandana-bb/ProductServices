@@ -65,7 +65,7 @@ public class ProductController {
 
 
     @RequestMapping("/products/categories")
-    public List<String> getAllCategory(){
+    public List<Product> getAllCategory(){
         return productServices.getAllCategory();
     }
 
