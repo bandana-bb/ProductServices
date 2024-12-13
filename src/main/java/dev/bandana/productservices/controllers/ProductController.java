@@ -5,6 +5,7 @@ import dev.bandana.productservices.dtos.UpdateProductRequestDto;
 import dev.bandana.productservices.exceptions.ProductNotFoundException;
 import dev.bandana.productservices.models.Product;
 import dev.bandana.productservices.services.ProductServices;
+import org.springframework.data.domain.Page;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -97,6 +98,13 @@ public class ProductController {
                 updateProductRequestDto.getPrice(), updateProductRequestDto.getCategory(), updateProductRequestDto.getImage(),
                 id);
 
+    }
+
+    @GetMapping("/products/paginated]/")
+    public Page<Product> getProductPaginated(@RequestParam("pageNo") int pageNo, @RequestParam("pageSize") int pageSize){
+
+       Page<Product> productPage= (Page<Product>) productServices.getProductPaginated(pageNo, pageSize);
+       return productPage;
     }
 
 //    @ExceptionHandler(ProductNotFoundException.class)

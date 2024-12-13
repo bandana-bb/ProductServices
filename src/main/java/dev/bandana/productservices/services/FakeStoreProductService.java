@@ -20,6 +20,12 @@ public class FakeStoreProductService implements ProductServices{
     public FakeStoreProductService(RestTemplate restTemplate) {
         this.restTemplate = restTemplate;
     }
+
+    @Override
+    public List<Product> getProductPaginated(int pageNo, int pageSize) {
+        return List.of();
+    }
+
     @Override
     public List<Product> getAllProducts() {
 

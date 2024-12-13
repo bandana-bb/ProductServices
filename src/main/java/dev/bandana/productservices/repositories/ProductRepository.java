@@ -3,6 +3,8 @@ package dev.bandana.productservices.repositories;
 import dev.bandana.productservices.models.Category;
 import dev.bandana.productservices.models.Product;
 import dev.bandana.productservices.projections.ProductProjection;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -14,6 +16,12 @@ import java.util.Optional;
 @Repository
 public interface ProductRepository extends JpaRepository<Product, Long> {
     Product save(Product product);
+
+
+    List<Product> finadAll();
+
+    @Override
+    Page<Product> findAll(Pageable pageable);
 
     Optional<Product> findAllById(long id);
     List<Product> findByCategory(Category category);
