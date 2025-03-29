@@ -5,6 +5,7 @@ import dev.bandana.productservices.models.Category;
 import dev.bandana.productservices.models.Product;
 import dev.bandana.productservices.repositories.CategoryRepository;
 import dev.bandana.productservices.repositories.ProductRepository;
+import org.springframework.context.annotation.Primary;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
@@ -14,6 +15,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service("selfProductService")
+@Primary
 public class SelfProductService implements ProductServices{
 
 
